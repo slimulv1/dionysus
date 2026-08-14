@@ -1,0 +1,13 @@
+# Logs & runtime artifacts
+*.log
+*.tmp
+*.swp
+*~
+
+# Backup files
+*.bak
+*.orig
+
+# OS noise
+.DS_Store
+Thumbs.db

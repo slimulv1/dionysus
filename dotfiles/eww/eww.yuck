@@ -49,7 +49,6 @@
 (defpoll gpu_voltage :interval "5s" "bash ~/.config/eww/scripts/sys/sys_gpu_voltage.sh || echo 'null'")
 (defpoll cpu_voltage :interval "5s" "bash ~/.config/eww/scripts/sys/sys_cpu_voltage.sh || echo 'null'")
 (defpoll dc_voltage  :interval "10s" "bash ~/.config/eww/scripts/sys/sys_dc_voltage.sh || echo 'null'")
-(defpoll power_mode  :interval "10s" "bash ~/.config/eww/scripts/sys/sys_power_mode.sh || echo 'null'")
 (defpoll power_draw  :interval "5s" "sensors | grep -m 1 'power1:' | awk '{print $2 \" \"$3}' || echo 'N/A'")
 
 ;; === CPU & GPU Stats ─────────────────────────────────────────────────────────
@@ -132,9 +131,6 @@ scripts/net/net_vpn.sh | xargs bash ~/.config/eww/scripts/net/net_vpn_bar.sh || 
 (defpoll reactor_ascii :interval "0.5s" "cat /tmp/reactor_frame.txt || echo 'standby'")
 
 (defpoll reactor_core_layout :interval "1s" "bash ~/.config/eww/scripts/ascii/ascii_core_layout.sh && cat /tmp/core_layout.txt || echo 'standby'")
-
-(defpoll live_log_gen :interval "5s" "bash ~/.config/eww/scripts/ascii/ascii_live_log.sh || echo 'null'")
-(defpoll live_text    :interval "5s" "cat /tmp/live_text.txt || echo '--------------…'")
 
 (defpoll ascii_audio_status :interval "2s" "bash ~/.config/eww/scripts/audio/audio_cava_status.sh || echo 'null'")
 

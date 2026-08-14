@@ -15,13 +15,11 @@ A custom **eww (Elkowar’s Wacky Widgets) HUD** for Linux — this is duct-tape
   - Easy monitor of sensors and network
   - Атмосфера холодного цеха
 
-![Eww Demo Gif](../../assets/demo-eww.gif)
+![Eww Demo Gif](../../assets/demo-hypr.gif)
   
 ```
 eww/
 ├── README.md
-├── demo.gif
-├── demo.png
 ├── eww-state.yml
 ├── eww.scss
 ├── eww.yuck
@@ -31,7 +29,6 @@ eww/
 │   ├── audio/
 │   │   ├── audio_cava_status.sh
 │   │   └── audio_visualizer.py
-│   ├── audio_visualizer.py
 │   ├── bar/
 │   │   └── bar_render.sh
 │   ├── net/
@@ -42,7 +39,8 @@ eww/
 │   │   ├── net_upload.sh
 │   │   ├── net_upload_bar.sh
 │   │   ├── net_vpn.sh
-│   │   └── net_vpn_bar.sh
+│   │   ├── net_vpn_bar.sh
+│   │   └── net_vpn_status.sh
 │   └── sys/
 │       ├── sys_cpu_voltage.sh
 │       ├── sys_dc_voltage.sh
@@ -106,7 +104,7 @@ eww open-many active_workspace \
 Add to your hyprland conf           
 ```      
 ## Auto run via hyprland
-exec-once = ~/.config/eww/scripts/audio/ascii_visualizer.py &
+exec-once = ~/.config/eww/scripts/audio/audio_visualizer.py &
 exec-once = cava -p ~/.config/cava/config &
 ```   
 Eww via: [waybar_watcher.sh](../hypr/scripts/waybar_watcher.sh)
