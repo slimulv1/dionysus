@@ -1,11 +1,17 @@
-# Alacritty config
-
-───────────────────────────────────────────────  
-°˖* ૮( • ᴗ ｡)っ🍸 shheersh - Dionysus vers. 1.0  
-───────────────────────────────────────────────  
+# Alacritty
 
 Nord-inspired, neon-radioactive terminal theme.
 
-![Alacritty Demo](../../assets/demo-alacritty.png)
+![Alacritty demo](../../assets/demo-alacritty.png)
 
+## Usage
 
+```sh
+cp alacritty.toml ~/.config/alacritty/alacritty.toml
+```
+
+Requires a **Nerd Font** for icon glyphs.
+
+## Files
+
+- `alacritty.toml` — main configuration (colors, fonts, window settings)

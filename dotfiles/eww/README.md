@@ -1,25 +1,20 @@
-# EWW Config 
+# EWW
 
-───────────────────────────────────────────────  
- °˖* ૮( • ᴗ ｡)っ🍸 shheersh - Dionysus vers. 1.0   
- ───────────────────────────────────────────────  
+Custom **EWW** (Elkowar's Wacky Widgets) HUD — ASCII art, system stats, network
+monitoring, and neon reactor-core vibes.
 
-## Custom animated **EWW*. 
-A custom **eww (Elkowar’s Wacky Widgets) HUD** for Linux — this is duct-taped together ASCII art, system stats, network monitoring, and neon reactor-core vibes. 
-
-![Eww Demo Png](../../assets/demo-eww.png)
----
+![EWW demo](../../assets/demo-eww.png)
 
 ## Features
-  - Custom ASCII visualizer
-  - Easy monitor of sensors and network
-  - Атмосфера холодного цеха
 
-![Eww Demo Gif](../../assets/demo-hypr.gif)
-  
+- Custom **ASCII audio visualizer**
+- Easy monitoring of sensors and network
+- Full HUD: workspaces, bars, power/cooling data, welcome text
+
+## Structure
+
 ```
 eww/
-├── README.md
 ├── eww-state.yml
 ├── eww.scss
 ├── eww.yuck
@@ -69,23 +64,20 @@ eww/
         ├── right_fan_data.yuck
         └── workspace_window_text.yuck
 ```
- 
 
 ## Requirements
-  - **eww** (Elkowar’s Wacky Widgets)  
-  - **jq** (for JSON parsing)  
-  - **lm-sensors** (for voltages, temps, fans)  
-  - **nvidia-smi** (if using NVIDIA GPU monitoring)  
-  - **curl**  
-  - **ping**  
-  - **cava**
 
----
+- **eww** (Elkowar's Wacky Widgets)
+- **jq** (JSON parsing)
+- **lm-sensors** (voltages, temps, fans)
+- **nvidia-smi** (NVIDIA GPU monitoring)
+- **curl**, **ping**, **cava**
 
 ## Usage
-To launch the full HUD:
 
-```
+Launch the full HUD:
+
+```sh
 eww open-many active_workspace \
                ascii_decor_frame \
                audio_status \
@@ -93,28 +85,30 @@ eww open-many active_workspace \
                four_boxes \
                net_bars \
                orange_workspace \
-               power-cooling_header_text \
+               power_cooling_header_text \
                power_mode_text \
                right_fan_data \
                right_internet_text \
                visualizer_window \
                welcome_text \
                workspace_window_text
-```   
-Add to your hyprland conf           
-```      
-## Auto run via hyprland
+```
+
+### Autostart via Hyprland
+
+Add to your Hyprland config:
+
+```sh
 exec-once = ~/.config/eww/scripts/audio/audio_visualizer.py &
 exec-once = cava -p ~/.config/cava/config &
-```   
-Eww via: [waybar_watcher.sh](../hypr/scripts/waybar_watcher.sh)
-Run as a `systemd` unit for more robust use.
+```
 
-### Configuration Notes
-Voltages & temps rely on lm-sensors. Run sensors-detect once.
-GPU stats require nvidia-smi.
-Network assumes wlp4s0 — change your interface name in net_* scripts.
-VPN detection looks for 10.6.0.x (NordVPN via strongSwan). Adjust if using another provider.
+EWW itself is launched via [`waybar_watcher.sh`](../hypr/scripts/waybar_watcher.sh).
+For more robust use, run it as a **systemd** unit.
 
-I'm sorry in advance. God speed if you try and get this running yourself. 
+## Configuration notes
 
+- Voltages & temps rely on **lm-sensors** — run `sensors-detect` once.
+- GPU stats require **nvidia-smi**.
+- Network scripts assume the `wlp4s0` interface — change it in the `net_*` scripts if needed.
+- VPN detection looks for `10.6.0.x` (NordVPN via strongSwan) — adjust for other providers.

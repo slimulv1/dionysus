@@ -1,65 +1,51 @@
-# Dotfiles
-───────────────────────────────────────────────  
- °˖* ૮( • ᴗ ｡)っ🍸 shheersh - Dionysus vers. 1.0   
- ───────────────────────────────────────────────  
- ``` 
-                  ) ) )                     ) ) )
-                ( ( (                      ( ( (
-              ) ) )                       ) ) )
-           (~~~~~~~~~)                 (~~~~~~~~~)
-            |   А   |                   |   Б   |
-            |       |                   |       |
-            I      _._                  I       _._
-            I    /'   `\                I     /'   `\
-            I   |   N   |               I    |   N   |
-            f   |   |~~~~~~~~~~~~~~|    f    |    |~~~~~~~~~~~~~~|
-          .'    |   ||~~~~~~~~|    |  .'     |    | |~~~~~~~~|   |
-        /'______|___||__###___|____|/'_______|____|_|__###___|___|                  
-                 ) ) )                     ) ) )
-                ( ( (                      ( ( (
-              ) ) )                       ) ) )
-           (~~~~~~~~~)                 (~~~~~~~~~)
-            |   В   |                   |   Д   |
-            |       |                   |       |
-            I      _._                  I       _._
-            I    /'   `\                I     /'   `\
-            I   |   N   |               I    |   N   |
-            f   |   |~~~~~~~~~~~~~~|    f    |    |~~~~~~~~~~~~~~|
-          .'    |   ||~~~~~~~~|    |  .'     |    | |~~~~~~~~|   |
-        /'______|___||__###___|____|/'_______|____|_|__###___|___|
-``` 
-# Добро пожаловать, командир.  
-Rice config for **Hyprland** on Arch Linux,  
-running on my **ROG Zephyrus G15** (_dionysus_). 
+# Dionysus — Dotfiles
 
-## Features
-  - Animated **Neofetch**  
-  - Dynamic **Waybar**  
-  - ASCII **Cava Visualizer**  
-  - Nord-inspired **neon-radioactive theme**  
+Configuration for the **Dionysus** Hyprland rice — Arch Linux, tuned on a ROG Zephyrus G15.
 
-## Demo
-![Hyprland Demo 2](../assets/demo.gif)
-### Neofetch
-![Neofetch](../assets/demo-neofetch.gif)
-### Eww
-![Eww HUD](../assets/demo-eww.png)
-### Rofi
-![Rofi Demo](../assets/demo-rofi.png)
-### Cava
-![Cava Visualizer](../assets/demo-cava.gif)
-### Alacritty + Waybar
-![Alacritty](../assets/demo-alacritty.png)
+Nord-inspired **neon-radioactive** theme across every component.
 
-##  Contents
-- [alacritty](alacritty/) → terminal config  
-- [cava](cava/) → audio visualizer  
-- [eww](eww/) → HUD & widgets  
-- [firefox](firefox/) → browser theme  
-- [hypr](hypr/) → window manager  
-- [neofetch](neofetch/) → animated fetch  
-- [rofi](rofi/) → launcher + powermenu  
-- [waybar](waybar/) → status bar  
-- [zsh](zsh/) → shell configs  
+## Components
 
+| Directory | Component | Description |
+| --- | --- | --- |
+| [alacritty](alacritty/) | Terminal | Neon-radioactive theme |
+| [cava](cava/) | Audio visualizer | Raw ASCII output for widgets |
+| [eww](eww/) | HUD & widgets | ASCII visualizer, sensors, network |
+| [firefox](firefox/) | Browser theme | Firefox Color theme |
+| [hypr](hypr/) | Window manager | Core WM config + scripts |
+| [neofetch](neofetch/) | Animated fetch | 60-frame ASCII animation |
+| [rofi](rofi/) | App launcher | Custom launcher theme |
+| [waybar](waybar/) | Status bar | Dynamic modules & styling |
+| [zsh](zsh/) | Shell | Shell configuration |
 
+## Gallery
+
+| | | |
+| --- | --- | --- |
+| ![Neofetch](../assets/demo-neofetch.gif) | ![EWW](../assets/demo-eww.png) | ![Rofi](../assets/demo-rofi.png) |
+| ![Cava](../assets/demo-cava.gif) | ![Alacritty + Waybar](../assets/demo-alacritty.png) | ![Waybar](../assets/demo-waybar.png) |
+
+## Installation
+
+1. Clone the repository:
+
+   ```sh
+   git clone https://github.com/slimulv1/dionysus.git
+   ```
+
+2. Copy each component into `~/.config/`:
+
+   ```sh
+   cp -r dionysus/dotfiles/* ~/.config/
+   ```
+
+3. Follow the per-component guide in each directory's `README.md`.
+
+## Requirements
+
+- **Hyprland** + **hyprpaper** (compositor & wallpaper)
+- **eww** (Elkowar's Wacky Widgets), **cava**, **rofi**, **alacritty**, **waybar**
+- **grim / slurp / wl-clipboard** (screenshots & clipboard)
+- **wpctl / playerctl / brightnessctl** (volume, media, backlight)
+- **lm-sensors** (temps, fans, voltages), **jq** (EWW JSON parsing)
+- **Nerd Font** (Waybar & EWW icons)

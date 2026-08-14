@@ -1,60 +1,58 @@
-# Hyprland Config 
+# Hyprland
 
-───────────────────────────────────────────────  
- °˖* ૮( • ᴗ ｡)っ🍸 shheersh - Dionysus vers. 1.0   
- ───────────────────────────────────────────────  
- 
-## Custom **hyprland** config
-Tuned for EWW integration, CAVA visualizer, and Waybar  
-![Hyprland Demo](../../assets/demo-hypr.gif)  
----
+Custom **Hyprland** configuration tuned for EWW integration, the CAVA visualizer, and Waybar.
 
-##  Features
-  - Dynamic waybar depending on active/inactive windows.
-  - Firefox preload for smooth quick access. 
-  - ASUS keyboard fix scripts – brightness, breathing, and profile cycling
+![Hyprland demo](../../assets/demo-hypr.gif)
 
-![Hyprland Demo 2](../../assets/demo-hypr-2.gif)
+## Features
 
-``` 
-hyprland/
+- **Dynamic Waybar** — switches depending on active/inactive windows
+- **Firefox preload** for smooth quick access
+- **ASUS keyboard fixes** — brightness, breathing, and profile cycling
+
+## Structure
+
+```
+hypr/
 ├── hyprland.conf
+├── hyprpaper.conf
+├── extras/
+│   ├── ascii_boot.txt
+│   └── quotes.txt
 ├── scripts/
+│   ├── refresh-eww.sh
 │   ├── waybar_watcher.sh
 │   └── asus-kbd/
-│       ├── kbd-brightness.sh
+│       ├── cycle-profile.sh
 │       ├── kbd-breathing.sh
-│       └── cycle-profile.sh
-└── demo.gif  
+│       └── kbd-brightness.sh
+├── shaders/
+│   └── screenshot_overlay.frag
+└── wallpapers/
+    ├── bg_wallpaper.png
+    └── black.png
 ```
 
 ## Requirements
-  - **Hyprland** (Wayland compositor & WM)
-  - **Hyprpaper** (wallpaper daemon for Hyprland)
-  - **eww** (Elkowar’s Wacky Widgets)
-  - **cava** (audio visualizer)
-  - **rofi** (application launcher)
-  - **alacritty** (terminal emulator)
-  - **thunar** (file manager)
-  - **firefox** (browser, with custom profile support)
-  - **grim** (Wayland screenshot tool)
-  - **slurp** (Wayland region selector)
-  - **wl-clipboard** (for `wl-copy`)
-  - **wpctl** (PipeWire volume control)
-  - **playerctl** (media player control)
-  - **brightnessctl** (backlight control)
-  - **curl** (network requests in scripts)
-  - **lm-sensors** (for temps, fans, voltages)
 
-This config ties into your other dotfiles:
+- **Hyprland** (Wayland compositor & WM)
+- **hyprpaper** (wallpaper daemon)
+- **eww** (Elkowar's Wacky Widgets)
+- **cava** (audio visualizer)
+- **rofi** (application launcher)
+- **alacritty** (terminal emulator)
+- **thunar** (file manager)
+- **firefox** (browser)
+- **grim**, **slurp** (screenshots)
+- **wl-clipboard** (`wl-copy`)
+- **wpctl** (PipeWire volume), **playerctl** (media), **brightnessctl** (backlight)
+- **curl** (network requests), **lm-sensors** (temps, fans, voltages)
 
 ## Usage
 
-- **Waybar/Eww** → via [`waybar_watcher.sh`](https://github.com/pewdiepie-archdaemon/dionysus/blob/dionysus/dotfiles/hypr/scripts/waybar_watcher.sh)  
-  Keeps Waybar and EWW and hyprpaper running reliably under Hyprland.
-- **CAVA Visualizer** → launched on login, outputs ASCII to `/tmp/cava.raw`  
-  Integrated with EWW via [`audio_visualizer.py`][`audio_visualizer.py`](https://github.com/pewdiepie-archdaemon/dionysus/blob/dionysus/dotfiles/eww/).
-- **ASUS Keyboard** → custom scripts for backlight and performance profiles in  
-  [`asus-kbd`](https://github.com/pewdiepie-archdaemon/dionysus/tree/dionysus/dotfiles/hypr/scripts/asus-kbd)   
-  Includes brightness, breathing effects, and cycle-profile utilities.
-
+- **Waybar / EWW / hyprpaper** are kept running reliably by
+  [`waybar_watcher.sh`](scripts/waybar_watcher.sh) via `exec-once`.
+- **CAVA visualizer** launches on login and outputs ASCII to `/tmp/cava.raw`,
+  rendered by [`audio_visualizer.py`](../eww/scripts/audio/audio_visualizer.py).
+- **ASUS keyboard** controls live in
+  [`scripts/asus-kbd/`](scripts/asus-kbd/) — brightness, breathing, and profile cycling.

@@ -1,68 +1,63 @@
-# Waybar Config
+# Waybar
 
-───────────────────────────────────────────────  
- °˖* ૮( • ᴗ ｡)っ🍸 shheersh - Dionysus vers. 1.0   
- ───────────────────────────────────────────────  
- 
-## Custom **Waybar** config.
-![Waybar Demo](../../assets/demo-waybar.png)  
----
+Custom **Waybar** configuration with dynamic, clickable modules.
 
-##  Features
-- **Custom workspace** clickable modules (`workspace-1.sh` … `workspace-4.sh`)
-- **Battery status** with JSON script + native fallback, dynamic icons, warnings
-- **Volume control** via PipeWire (`wpctl`) with mute and scroll-to-change volume.
-- **Microphone toggle** with instant mute/unmute
-- **Brightness control** with slider, scroll actions, and toggle.
-- **VPN integration** with NordVPN status.
-- **Bluetooth module** with custom toggle script and tooltips
-- **Network widget** with icons, bandwidth stats, and `nm-connection-editor` launcher
-- **ASUS laptop profile** module, showing/toggling performance modes
-- **Power menu** integration via Rofi  
+![Waybar demo](../../assets/demo-waybar.png)
 
-![Waybar Demo 2](../../assets/demo-waybar-2.png)  
-![Waybar Demo 2.1](../../assets/demo-waybar-2_1.png)
+## Features
+
+- **Custom workspace** modules (`workspace-1.sh` … `workspace-4.sh`), clickable
+- **Battery status** — JSON script with dynamic icons and low-battery warnings
+- **Volume control** via PipeWire (`wpctl`) — mute + scroll-to-change
+- **Microphone toggle** — instant mute/unmute
+- **Brightness control** — slider, scroll actions, and toggle
+- **VPN integration** — NordVPN status module
+- **Bluetooth module** — toggle script with tooltips
+- **Network widget** — icons, bandwidth stats, `nm-connection-editor` launcher
+- **ASUS profile module** — shows/toggles performance modes
+- **Power menu** — integrated via Rofi
+
+## Structure
+
 ```
-├── README.md
+waybar/
 ├── config
-├── demo.png
-├── scripts
-│   ├── asus-profile.sh
-│   ├── battery.sh
-│   ├── bluetooth-toggle.sh
-│   ├── brightness-toggle.sh
-│   ├── brightness.sh
-│   ├── mic.sh
-│   ├── nordvpn-status.sh
-│   ├── nordvpn-toggle.sh
-│   ├── powermenu.sh
-│   ├── volume.sh
-│   └── workspaces
-│       ├── workspace-1.sh
-│       ├── workspace-2.sh
-│       ├── workspace-3.sh
-│       └── workspace-4.sh
-└── style.css
+├── style.css
+└── scripts/
+    ├── asus-profile.sh
+    ├── battery.sh
+    ├── bluetooth-toggle.sh
+    ├── brightness-toggle.sh
+    ├── brightness.sh
+    ├── mic.sh
+    ├── nordvpn-status.sh
+    ├── nordvpn-toggle.sh
+    ├── powermenu.sh
+    ├── volume.sh
+    └── workspaces/
+        ├── workspace-1.sh
+        ├── workspace-2.sh
+        ├── workspace-3.sh
+        └── workspace-4.sh
 ```
-![Demo](../../assets/demo-firefox.png)
 
 ## Requirements
-- `hyprland` (hyprctl for workspaces)
-- `rofi` (for power menu)
-- `wpctl` (PipeWire volume control)
-- `playerctl`
-- `brightnessctl`
-- `nm-connection-editor`
-- `nordvpn` (CLI client)
-- `pactl` (PulseAudio/PipeWire control)
-- `Nerd Font` for icons
+
+- `hyprland` (`hyprctl` for workspaces)
+- `rofi` (power menu)
+- `wpctl` (PipeWire volume), `playerctl`, `brightnessctl`
+- `nm-connection-editor` (network)
+- `nordvpn` CLI (optional — VPN modules)
+- **Nerd Font** for icons (󰤆, 󰖪, …)
 
 ## Usage
-Requires a Nerd Font (for icons such as 󰤆, 󰖪, etc.)
-Make sure scripts are executable:  
-```chmod +x ~/.config/waybar/scripts/*.sh```  
-```chmod +x ~/.config/waybar/scripts/workspaces/*.sh```
+
+```sh
+cp -r . ~/.config/waybar/
+chmod +x ~/.config/waybar/scripts/*.sh
+chmod +x ~/.config/waybar/scripts/workspaces/*.sh
+```
+
 - `config` → main Waybar configuration
 - `style.css` → custom styling
 - `scripts/` → helper scripts for modules
-
